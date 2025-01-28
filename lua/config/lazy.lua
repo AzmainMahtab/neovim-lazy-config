@@ -18,10 +18,9 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- import/override with your plugins
+    { "codota/tabnine-nvim", build = "./dl_binaries.sh" },
     { import = "plugins" },
     { import = "colorscheme" },
-    { import = "plugins" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -52,4 +51,15 @@ require("lazy").setup({
       },
     },
   },
+})
+
+require("tabnine").setup({
+  disable_auto_comment = true,
+  accept_keymap = "<Tab>",
+  dismiss_keymap = "<C-]>",
+  debounce_ms = 800,
+  suggestion_color = { gui = "#808080", cterm = 244 },
+  exclude_filetypes = { "TelescopePrompt", "NvimTree" },
+  log_file_path = nil, -- absolute path to Tabnine log file
+  ignore_certificate_errors = false,
 })
