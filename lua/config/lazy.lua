@@ -18,6 +18,7 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    -- Adding tabnine-nvim
     { "codota/tabnine-nvim", build = "./dl_binaries.sh" },
     { import = "plugins" },
     { import = "colorscheme" },
@@ -52,7 +53,7 @@ require("lazy").setup({
     },
   },
 })
-
+-- Tabnine configuration settings.
 require("tabnine").setup({
   disable_auto_comment = true,
   accept_keymap = "<Tab>",
